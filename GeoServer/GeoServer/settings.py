@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {                  # add
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.permissions.IsAuthenticated',
     ),
 }
 from datetime import timedelta
@@ -119,6 +120,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'GeoServer.wsgi.application'
 
+DEFAULT_AUTHENTICATION_CLASSES=[
+        'cvat.apps.authentication.auth.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -126,7 +132,7 @@ WSGI_APPLICATION = 'GeoServer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'geoserver',
+        'NAME': 'GeoServer',
         'USER': 'postgres',
         'PASSWORD':'123456',
         'HOST':'127.0.0.1',
