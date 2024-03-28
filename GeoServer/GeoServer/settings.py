@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
 ]
-
+AUTH_USER_MODEL ='app.Users'
+GDAL_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\gdal304.dll"
+GEOS_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\geos_c.dll"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,8 +78,8 @@ WSGI_APPLICATION = 'GeoServer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'OMM',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'geoserver',
         'USER': 'postgres',
         'PASSWORD':'123456',
         'HOST':'127.0.0.1',
