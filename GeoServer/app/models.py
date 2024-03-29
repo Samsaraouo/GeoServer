@@ -11,7 +11,7 @@ class Users(AbstractUser):
     mobile = models.CharField(null=True, blank=True, max_length=11, verbose_name="电话")
     email = models.CharField(max_length=100, null=True, blank=True, verbose_name="邮箱")
     class Meta:
-        db_table = "user"
+        db_table = "users"
         verbose_name = "用户"
         verbose_name_plural = verbose_name 
     def __str__(self):
