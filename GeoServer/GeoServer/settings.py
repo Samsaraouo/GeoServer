@@ -38,10 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'rest_framework',
+    'rest_framework_simplejwt',
 ]
+REST_FRAMEWORK = {                  # add
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 AUTH_USER_MODEL ='app.Users'
-GDAL_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\gdal304.dll"
-GEOS_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\geos_c.dll"
+# 云电脑路径
+# GDAL_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\gdal304.dll"
+# GEOS_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\geos_c.dll"
+# 本地路径
+GDAL_LIBRARY_PATH="E:\\Python\\Lib\\site-packages\\osgeo\\gdal304.dll"
+GEOS_LIBRARY_PATH="E:\\Python\\Lib\\site-packages\\osgeo\\geos_c.dll"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
