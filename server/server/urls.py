@@ -1,5 +1,5 @@
 """
-URL configuration for GeoServer project.
+URL configuration for server project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -14,20 +14,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# simple/urls.py
+from django.contrib import admin
 from django.urls import path
-from app.views import MyView
-from app.serializers import MyTokenObtainPairSerializer
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView
-)
-class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class=MyTokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView, TokenObtainPairView
+ 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
-    path('info/',MyView.as_view()),
-    path('login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('admin/', admin.site.urls),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('verify/', TokenVerifyView.as_view(), name='token_verify')
+    path('verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
