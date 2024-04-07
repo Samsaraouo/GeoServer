@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.urls import reverse
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from app.models import yimu
 from django.forms.models import model_to_dict
+from django.contrib.auth import logout
+import json
+from django.http import JsonResponse
 # Create your views here.
 
 def App(request):
@@ -36,3 +40,8 @@ class MyView(APIView):
         data["message"]="加载数据成功"
         data["data"]=list
         return Response(data)
+    
+def logout_view(request):
+    logout(request)
+    data = {'code':'1'}
+    return JsonResponse(data)
