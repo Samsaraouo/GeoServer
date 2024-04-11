@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'app',
     'rest_framework',
     'rest_framework_simplejwt',
@@ -57,11 +58,11 @@ SIMPLE_JWT = {
 }
 AUTH_USER_MODEL ='app.Users'
 # 云电脑路径
-GDAL_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\gdal304.dll"
-GEOS_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\geos_c.dll"
+# GDAL_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\gdal304.dll"
+# GEOS_LIBRARY_PATH="C:\\Users\\1175542054\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\osgeo\\geos_c.dll"
 # 本地路径
-# GDAL_LIBRARY_PATH="E:\\Python\\Lib\\site-packages\\osgeo\\gdal304.dll"
-# GEOS_LIBRARY_PATH="E:\\Python\\Lib\\site-packages\\osgeo\\geos_c.dll"
+GDAL_LIBRARY_PATH="E:\\Python\\Lib\\site-packages\\osgeo\\gdal304.dll"
+GEOS_LIBRARY_PATH="E:\\Python\\Lib\\site-packages\\osgeo\\geos_c.dll"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

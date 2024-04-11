@@ -22,6 +22,7 @@ class xiaoban_huzhen(GeoModels.Model):
     dlmc = GeoModels.CharField(max_length=60,null=True,verbose_name="地类名称")
     xiao_ban = GeoModels.CharField(max_length=5,null=True,verbose_name="小班代号")
     xbmj = GeoModels.FloatField(null=True,verbose_name="小班面积")
+    lin_ban = GeoModels.CharField(max_length=4,null=True,verbose_name="林班")
     lb_name = GeoModels.CharField(max_length=50,null=True,verbose_name="林班名")
     di_ming = GeoModels.CharField(max_length=16,null=True,verbose_name="地名")
     hai_ba = GeoModels.CharField(max_length=4,null=True,verbose_name="海拔")

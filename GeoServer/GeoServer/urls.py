@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from app.views import MyView,select_all,logout_view
+from app.views import Select_yimu,logout_view,Select_xiaoban,Select_linban
 from app.serializers import MyTokenObtainPairSerializer
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -26,10 +26,11 @@ class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class=MyTokenObtainPairSerializer
 urlpatterns = [
     #path('admin/', admin.site.urls),
-    path('info/',MyView.as_view()),
     path('login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('logout/',logout_view,name="logout"),
-    path('select_all/',select_all),
+    path('select_yimu/',Select_yimu),
+    path('select_xb/',Select_xiaoban),
+    path('select_lb/',Select_linban),
 ]
